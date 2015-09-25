@@ -49,7 +49,8 @@ public class ReposBotoes : MonoBehaviour {
 			//print (bounds);
 			Vector3 screenSize = interfaceCam.ViewportToWorldPoint(new Vector3(1, 1, 0)) - interfaceCam.ViewportToWorldPoint(new Vector3(0, 0, 0));
 			//print (new Vector3(screenSize.x / bounds.x, screenSize.y / bounds.y, 1) + " / " +  screenSize);
-			fitScreen.transform.localScale = new Vector3(screenSize.x / bounds.x, screenSize.y / bounds.y, 1);
+			float scale = Mathf.Min(screenSize.x / bounds.x, screenSize.y / bounds.y);
+			fitScreen.transform.localScale = new Vector3(scale, scale, 1);
 		}
 	}
 }
